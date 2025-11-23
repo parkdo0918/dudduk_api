@@ -1,14 +1,20 @@
 ### 1. User (회원)
 
 - `id` (PK, BIGINT, AUTO_INCREMENT)
+- `social_id` (VARCHAR(255), UNIQUE, NOT NULL) - 카카오/구글 고유 ID
+- `provider` (ENUM: 'KAKAO', 'GOOGLE', NOT NULL) - 소셜 로그인 제공자
 - `email` (VARCHAR(100), UNIQUE, NOT NULL)
-- `password` (VARCHAR(255), NOT NULL)
 - `name` (VARCHAR(50), NOT NULL)
 - `nickname` (VARCHAR(50), UNIQUE)
 - `age` (INT)
 - `gender` (ENUM: 'MALE', 'FEMALE', 'OTHER')
+- `profile_image_url` (VARCHAR(255)) - 소셜 프로필 사진
 - `created_at` (TIMESTAMP)
 - `updated_at` (TIMESTAMP)
+
+**관계:** User 1:1 UserHealthProfile, User 1:N WorkoutRoutine, User 1:N BodyRecord, User 1:N WorkoutRecord
+
+**비고:** 소셜 로그인 전용 (password 필드 없음)
 
 ---
 
@@ -18,10 +24,12 @@
 - `user_id` (FK → User.id, NOT NULL)
 - `pain_area` (VARCHAR(255)) - 통증 부위 (예: "무릎,발목")
 - `symptoms` (VARCHAR(255)) - 증상
-- `daily_pattern` (VARCHAR(255)) - 일상생활 패턴
-- `preferred_time`: VARCHAR(50) - 예: "아침", "점심", "저녁"
-- `exercise_frequency`: VARCHAR(50) - 예: "주 3회", "주 5회", "매일"
-- `exercise_goal`: TEXT - 예: "무릎 통증 완화", "근력 강화"
+- `average_sleep_hours` (DOUBLE) - 평균 수면 시간
+- `activity_type` (VARCHAR(255)) - 활동 유형
+- `exercise_experience` (VARCHAR(255)) - 운동 경험
+- `preferred_time` (VARCHAR(50)) - 예: "아침", "점심", "저녁"
+- `exercise_frequency` (VARCHAR(50)) - 예: "주 3회", "주 5회", "매일"
+- `exercise_goal` (TEXT) - 예: "무릎 통증 완화", "근력 강화"
 - `created_at` (TIMESTAMP)
 - `updated_at` (TIMESTAMP)
 
