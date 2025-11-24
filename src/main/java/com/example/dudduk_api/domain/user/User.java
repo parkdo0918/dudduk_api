@@ -56,7 +56,7 @@ public class User {
 
     @Builder
     public User(String socialId, SocialProvider provider, String email, String name,
-                String nickname, Integer age, Gender gender, Double height, Double weight, String profileImageUrl) {
+                String nickname, Integer age, Gender gender, String profileImageUrl) {
         this.socialId = socialId;
         this.provider = provider;
         this.email = email;
@@ -68,7 +68,7 @@ public class User {
     }
 
     // 비즈니스 메서드
-    public void updateProfile(String name, String nickname, Integer age, Gender gender, Double height, Double weight) {
+    public void updateProfile(String name, String nickname, Integer age, Gender gender) {
         this.name = name;
         this.nickname = nickname;
         this.age = age;

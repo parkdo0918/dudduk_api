@@ -32,29 +32,33 @@ public class UserHealthProfile {
     @Column(precision = 5, scale = 2)
     private BigDecimal weight;  // 몸무게 (kg)
 
-    // 건강 프로필
+    // 건강 정보
     @Column(length = 255)
     private String painArea;  // 통증 부위
 
+    //통증 기본 정보
     @Column(length = 255)
     private String symptoms;  // 증상
 
+    //일상 생활 패턴
     private Double averageSleepHours;  // 평균 수면 시간
 
     @Column(length = 255)
-    private String activityType;  // 활동 유형
+    private String dailyPattern;  // 생활 패턴
 
+    //운동 경험
     @Column(length = 255)
     private String exerciseExperience;  // 운동 경험
 
-    @Column(length = 50)
-    private String preferredTime;  // 운동 선호 시간
+    @Column(length = 255)
+    private String exerciseType;  // 운동 유형
 
+    // 운동 선호 시간
     @Column(length = 50)
     private String exerciseFrequency;  // 운동 빈도
 
-    @Column(columnDefinition = "TEXT")
-    private String exerciseGoal;  // 운동 목표
+    @Column(length = 50)
+    private String preferredTime;  // 운동 선호 시간
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -66,19 +70,19 @@ public class UserHealthProfile {
 
     public UserHealthProfile(User user, Integer height, BigDecimal weight,
                              String painArea, String symptoms, Double averageSleepHours,
-                             String activityType, String exerciseExperience,
-                             String preferredTime, String exerciseFrequency,
-                             String exerciseGoal) {
+                             String dailyPattern, String exerciseExperience,
+                             String exerciseType, String exerciseFrequency,
+                             String preferredTime) {
         this.user = user;
         this.height = height;
         this.weight = weight;
         this.painArea = painArea;
         this.symptoms = symptoms;
         this.averageSleepHours = averageSleepHours;
-        this.activityType = activityType;
+        this.dailyPattern = dailyPattern;
         this.exerciseExperience = exerciseExperience;
-        this.preferredTime = preferredTime;
+        this.exerciseType = exerciseType;
         this.exerciseFrequency = exerciseFrequency;
-        this.exerciseGoal = exerciseGoal;
+        this.preferredTime = preferredTime;
     }
 }
