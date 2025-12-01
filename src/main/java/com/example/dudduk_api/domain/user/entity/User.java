@@ -48,9 +48,13 @@ public class User extends BaseTimeEntity {
 
     // 비즈니스 메서드
     //프로필 업데이트
-    public void updateProfile(String nickname, String profileImageUrl, String bio) {
-        this.nickname = nickname;
-        this.profileImageUrl = profileImageUrl;
+    public void updateProfile(String nickname, String profileImageUrl) {
+        if (nickname != null && !nickname.isBlank()) {
+            this.nickname = nickname;
+        }
+        if (profileImageUrl != null && !profileImageUrl.isBlank()) {
+            this.profileImageUrl = profileImageUrl;
+        }
     }
 
     // Refresh Token 관련 메서드
