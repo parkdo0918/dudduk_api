@@ -1,5 +1,6 @@
-package com.example.dudduk_api.domain.routine;
+package com.example.dudduk_api.domain.routine.repository;
 
+import com.example.dudduk_api.domain.routine.entity.WorkoutRoutine;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 

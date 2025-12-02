@@ -1,22 +1,17 @@
-package com.example.dudduk_api.domain.routine;
+package com.example.dudduk_api.domain.routine.entity;
 
-import com.example.dudduk_api.domain.user.User;
+import com.example.dudduk_api.domain.common.BaseTimeEntity;
+import com.example.dudduk_api.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "workout_routines")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EntityListeners(AuditingEntityListener.class)
-public class WorkoutRoutine {
+public class WorkoutRoutine extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,25 +22,17 @@ public class WorkoutRoutine {
     private User user;
 
     @Column(nullable = false, length = 100)
-    private String name;  // 루틴 이름 (예: "월요일 무릎 재활 루틴")
-
-    @Column(columnDefinition = "TEXT")
-    private String description;  // 루틴 설명
+    private String name;  // 루틴 이름 (예: "오늘의 루틴, 내일의 루틴")
 
     @Column(nullable = false)
-    private Boolean isActive = true;  // 활성화 여부
+    private Boolean isFavorite = false;  // 즐겨찾기 여부
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime updatedAt;
-
-    public WorkoutRoutine(User user, String name, String description) {
+    public WorkoutRoutine(User user, String name) {
         this.user = user;
         this.name = name;
-        this.description = description;
+    }
+
+    public void toggleFavorite() {
+        this.isFavorite = !this.isFavorite;
     }
 }

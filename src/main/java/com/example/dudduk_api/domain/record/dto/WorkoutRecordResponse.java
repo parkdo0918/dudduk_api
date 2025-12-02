@@ -1,6 +1,6 @@
-package com.example.dudduk_api.dto.record;
+package com.example.dudduk_api.domain.record.dto;
 
-import com.example.dudduk_api.domain.record.WorkoutRecord;
+import com.example.dudduk_api.domain.record.entity.WorkoutRecord;
 import lombok.Getter;
 
 import java.time.LocalDate;
@@ -16,8 +16,6 @@ public class WorkoutRecordResponse {
     private String exerciseName;  // 운동 이름 (편의용)
 
     private Long workoutRoutineId;
-
-    private String routineName;  // 루틴 이름 (편의용, null 가능)
 
     private LocalDate date;
 
@@ -35,8 +33,6 @@ public class WorkoutRecordResponse {
         this.exerciseName = record.getExercise().getNameKo();
         this.workoutRoutineId = record.getWorkoutRoutine() != null ?
                 record.getWorkoutRoutine().getId() : null;
-        this.routineName = record.getWorkoutRoutine() != null ?
-                record.getWorkoutRoutine().getName() : null;
         this.date = record.getDate();
         this.actualSets = record.getActualSets();
         this.actualReps = record.getActualReps();

@@ -31,11 +31,11 @@ public class User extends BaseTimeEntity {
 
     private String profileImageUrl;  // 소셜 프로필 사진
 
-    private LocalDateTime refreshTokenExpiresAt;
-
     // Refresh Token 관련 필드 추가
     @Column(length = 500)
     private String refreshToken;
+
+    private LocalDateTime refreshTokenExpiresAt;
 
     @Builder
     public User(String socialId, SocialType socialType, String email, String name,

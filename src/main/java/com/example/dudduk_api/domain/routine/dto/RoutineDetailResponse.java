@@ -1,7 +1,7 @@
-package com.example.dudduk_api.dto.routine;
+package com.example.dudduk_api.domain.routine.dto;
 
-import com.example.dudduk_api.domain.routine.WorkoutRoutine;
-import com.example.dudduk_api.domain.routine.WorkoutRoutineExercise;
+import com.example.dudduk_api.domain.routine.entity.WorkoutRoutine;
+import com.example.dudduk_api.domain.routine.entity.WorkoutRoutineExercise;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -41,9 +41,6 @@ public class RoutineDetailResponse {
 
         private Integer customReps;
 
-
-        private Integer exerciseOrder;
-
         private String videoUrl;
 
         public ExerciseInRoutine(WorkoutRoutineExercise mapping) {
@@ -53,7 +50,6 @@ public class RoutineDetailResponse {
             this.difficulty = mapping.getExercise().getDifficulty();
             this.customSets = mapping.getCustomSets();
             this.customReps = mapping.getCustomReps();
-            this.exerciseOrder = mapping.getExerciseOrder();
             this.videoUrl = mapping.getExercise().getVideoUrl();
         }
     }
@@ -61,8 +57,6 @@ public class RoutineDetailResponse {
     public RoutineDetailResponse(WorkoutRoutine routine, List<WorkoutRoutineExercise> mappings) {
         this.id = routine.getId();
         this.name = routine.getName();
-        this.description = routine.getDescription();
-        this.isActive = routine.getIsActive();
         this.exercises = mappings.stream()
                 .map(ExerciseInRoutine::new)
                 .collect(Collectors.toList());

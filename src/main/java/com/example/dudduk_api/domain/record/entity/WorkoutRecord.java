@@ -1,24 +1,21 @@
-package com.example.dudduk_api.domain.record;
+package com.example.dudduk_api.domain.record.entity;
 
-import com.example.dudduk_api.domain.user.User;
-import com.example.dudduk_api.domain.exercise.Exercise;
-import com.example.dudduk_api.domain.routine.WorkoutRoutine;
+import com.example.dudduk_api.domain.common.BaseTimeEntity;
+import com.example.dudduk_api.domain.exercise.entity.Exercise;
+import com.example.dudduk_api.domain.user.entity.User;
+import com.example.dudduk_api.domain.routine.entity.WorkoutRoutine;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "workout_records")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@EntityListeners(AuditingEntityListener.class)
-public class WorkoutRecord {
+public class WorkoutRecord extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,10 +42,6 @@ public class WorkoutRecord {
 
     @Column(nullable = false)
     private Boolean completed = false;  // 완료 여부
-
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
 
     public WorkoutRecord(User user, Exercise exercise, WorkoutRoutine workoutRoutine,
                          LocalDate date, Integer actualSets, Integer actualReps,

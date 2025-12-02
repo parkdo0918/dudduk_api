@@ -1,4 +1,4 @@
-package com.example.dudduk_api.dto.routine;
+package com.example.dudduk_api.domain.routine.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

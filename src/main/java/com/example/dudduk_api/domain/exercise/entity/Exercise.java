@@ -1,5 +1,6 @@
-package com.example.dudduk_api.domain.exercise;
+package com.example.dudduk_api.domain.exercise.entity;
 
+import com.example.dudduk_api.domain.common.BaseTimeEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "exercise")
-public class Exercise {
+public class Exercise extends BaseTimeEntity {
 
     @Id
     @Column(name = "exercise_id", length = 10)

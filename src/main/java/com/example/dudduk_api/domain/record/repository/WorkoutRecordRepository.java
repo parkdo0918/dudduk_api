@@ -1,5 +1,6 @@
-package com.example.dudduk_api.domain.record;
+package com.example.dudduk_api.domain.record.repository;
 
+import com.example.dudduk_api.domain.record.entity.WorkoutRecord;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.time.LocalDate;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.dudduk_api.dto.record;
+package com.example.dudduk_api.domain.record.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
