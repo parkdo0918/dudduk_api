@@ -30,8 +30,8 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("Motiday API")
-                .description("모티데이 API 문서")
+                .title("Dudduk API")
+                .description("뚜둑 API 문서")
                 .version("1.0.0");
     }
 }
