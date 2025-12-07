@@ -8,7 +8,5 @@ public interface WorkoutRoutineRepository extends JpaRepository<WorkoutRoutine, 
 
     List<WorkoutRoutine> findByUserIdOrderByCreatedAtDesc(Long userId);
 
-    List<WorkoutRoutine> findByUserIdAndIsActiveOrderByCreatedAtDesc(Long userId, Boolean isActive);
-
     boolean existsByUserIdAndName(Long userId, String name);
 }

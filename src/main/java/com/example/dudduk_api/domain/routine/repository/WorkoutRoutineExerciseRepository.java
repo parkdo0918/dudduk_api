@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface WorkoutRoutineExerciseRepository extends JpaRepository<WorkoutRoutineExercise, Long> {
 
-    List<WorkoutRoutineExercise> findByWorkoutRoutineIdOrderByExerciseOrder(Long workoutRoutineId);
+    List<WorkoutRoutineExercise> findByWorkoutRoutineId(Long workoutRoutineId);
 
     void deleteByWorkoutRoutineId(Long workoutRoutineId);
 
