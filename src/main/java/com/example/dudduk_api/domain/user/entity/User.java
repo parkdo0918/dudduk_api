@@ -38,8 +38,7 @@ public class User extends BaseTimeEntity {
     private LocalDateTime refreshTokenExpiresAt;
 
     @Builder
-    public User(String socialId, SocialType socialType, String email, String name,
-                String nickname, String profileImageUrl) {
+    public User(String socialId, SocialType socialType, String nickname, String profileImageUrl) {
         this.socialId = socialId;
         this.socialType = socialType;
         this.nickname = nickname;
